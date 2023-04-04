@@ -1,7 +1,14 @@
 import { Request, Response } from 'express';
+import { Action } from '../framework/type';
 
-export const pingAction = (request: Request, response: Response) => {
-  response.json({
-    status: 'ok',
-  }).status(200);
+const pingAction: Action = {
+  path: '/ping',
+  method: 'get',
+  action: (request: Request, response: Response) => {
+    response.json({
+      status: 'ok',
+    }).status(200);
+  }
 };
+
+export default [pingAction];

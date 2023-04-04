@@ -1,6 +1,11 @@
-import express, { Application } from 'express';
 import * as http from 'http';
-import { pingAction } from './controllers/ping.controller';
+import express, { Application } from 'express';
+import cors from 'cors';
+
+import { installRoutes } from './framework/function';
+
+import pingController from './controllers/ping.controller';
+import userController from './controllers/user.controller';
 
 export interface App {
   app: Application;
@@ -11,7 +16,11 @@ export interface App {
 export const createApp = (): App => {
   const app = express();
 
-  app.get('/ping', pingAction);
+  app.use(express.json());
+  app.use(cors());
+
+  installRoutes(app, pingController);
+  installRoutes(app, userController);
 
   let server: http.Server;
   return {
