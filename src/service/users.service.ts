@@ -4,6 +4,7 @@ export type User = {
   id: string;
   username: string;
   createdAt: Date;
+  isBLocked: boolean;
 };
 
 const userStore: Record<string, User> = {};
@@ -15,5 +16,6 @@ export const createUser = (username: string) => {
     id,
     username,
     createdAt: new Date(),
+    isBLocked: false,
   };
 };
