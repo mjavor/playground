@@ -9,7 +9,8 @@
     "clean": "rimraf dist",
     "run": "node dist/server.js",
     "build": "tsc",
-    "test:api": "jest --config ./jest-api-test.config.ts"
+    "test:api": "jest --config ./jest-api-test.config.ts",
+    "test:test": "jest --config ./jest-test.config.ts"
   },
   "devDependencies": {
     "@types/cors": "2.8.13",
@@ -24,9 +25,11 @@
     "typescript": "5.0.2"
   },
   "dependencies": {
+    "argon2": "^0.30.3",
     "axios": "1.3.4",
     "cors": "2.8.5",
-    "express": "4.18.2"
+    "express": "4.18.2",
+    "zod": "^3.21.4"
   },
   "nodemonConfig": {
     "ignore": [
