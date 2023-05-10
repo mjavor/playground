@@ -16,13 +16,16 @@ export interface App {
 export const createApp = (): App => {
   const app = express();
 
+
   app.use(express.json());
   app.use(cors());
 
   installRoutes(app, pingController);
   installRoutes(app, userController);
 
+
   let server: http.Server;
+  module.exports = app;
   return {
     app,
     start: async (port: number): Promise<void> => new Promise(resolve => {
@@ -39,4 +42,7 @@ export const createApp = (): App => {
       });
     }),
   }
+
 };
+
+
