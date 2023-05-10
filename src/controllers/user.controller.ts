@@ -44,10 +44,7 @@ const listUsersAction: Action = {
   action: (request: Request, response: Response) => {
     const users = listUsers();
 
-    response.status(HttpStatusCode.Ok).send();
-
     return response.json(users)
-
   },
 };
 
@@ -67,8 +64,6 @@ const getUserByIdAction: Action = {
   method: 'get',
   action: (request: Request, response: Response) => {
     const userId = request.params.userId;
-
-    response.status(HttpStatusCode.Ok).send();
 
     return response.json(giveUserById(userId));
   },
